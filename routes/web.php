@@ -34,5 +34,5 @@ Route::get('/blog_single', function () {
     return view('pages.blog_single');
 });
 
-Route::get('/excel', [ExcelController::class, 'excel']);
+Route::get('/excel', [ExcelController::class, 'excel'])->name('excel');;
 Route::post('/excel', [ExcelController::class, 'import']);
