@@ -16,5 +16,11 @@
         "lodash": "^4.17.19",
         "resolve-url-loader": "^3.1.0",
         "vue-template-compiler": "^2.6.12"
+<<<<<<< HEAD
+=======
+    },
+    "dependencies": {
+        "bootstrap": "^4.5.3"
+>>>>>>> 3d43caa419c9845ef59e304cb37d375cffc56f8e
     }
 }
