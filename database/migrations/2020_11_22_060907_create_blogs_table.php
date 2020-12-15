@@ -15,12 +15,12 @@ class CreateBlogsTable extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('user_id');
+            // $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->text('content')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            // $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -31,9 +31,9 @@ class CreateBlogsTable extends Migration
      */
 public function down()
 {
-    Schema::table('blogs', function (Blueprint $table) {
-        $table->dropForeign(['user_id']);
-    });
+    // Schema::table('blogs', function (Blueprint $table) {
+    //     $table->dropForeign(['user_id']);
+    // });
     Schema::dropIfExists('blogs');
 }
 }

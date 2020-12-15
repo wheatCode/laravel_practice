@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExcelController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,10 @@ Route::get('/blog_single', function () {
 
 Route::get('/excel', [ExcelController::class, 'excel']);
 Route::post('/excel', [ExcelController::class, 'import']);
+
+
+
+Route::resource('/admin/blogs', BlogController::class);
+// ->except([
+//     'create', 'store', 'update', 'destroy'
+// ]);

@@ -19343,6 +19343,44 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+$.ajaxSetup({
+  headers: {
+    "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+  }
+});
+
+insertBlog = function insertBlog() {
+  window.location.href = "/admin/blogs/create";
+};
+
+updateBlog = function updateBlog(blog_id) {
+  window.event.preventDefault();
+  var title = document.getElementById("title").value;
+  var content = document.getElementById("content").value;
+  $.ajax({
+    url: "/admin/blogs/".concat(blog_id),
+    data: {
+      title: title,
+      content: content
+    },
+    type: "PUT",
+    success: function success(req) {
+      console.log(req);
+      window.location.href = "/admin/blogs/";
+    }
+  });
+};
+
+destoryBlog = function destoryBlog(blog_id, singPage) {
+  $.ajax({
+    url: "/admin/blogs/".concat(blog_id),
+    type: "DELETE",
+    success: function success(req) {
+      singPage ? window.location.href = "/admin/blogs/" : history.go(0);
+    }
+  });
+};
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -19384,8 +19422,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\wheat0710\Desktop\laravel_test\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\wheat0710\Desktop\laravel_test\resources\css\app.css */"./resources/css/app.css");
+__webpack_require__(/*! /Users/wheat/Desktop/laravel_practice/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/wheat/Desktop/laravel_practice/resources/css/app.css */"./resources/css/app.css");
 
 
 /***/ })
